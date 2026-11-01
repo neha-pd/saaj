@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * SAAJ palette — sampled from the official logo:
+ *   navy roundel  → navy-800 (primary brand colour)
+ *   line-art gold → gold-500 (accents, rules, icons on navy)
+ *   saree magenta → rose-600 (highlights, sale/badge, focus)
+ *   wordmark      → ivory
+ * Gold is decorative only on light backgrounds (fails AA as text);
+ * use gold-700 when gold-toned text must sit on ivory.
+ */
+@theme {
+  --color-navy-950: #0e1630;
+  --color-navy-900: #151f3d;
+  --color-navy-800: #1d2a4f;
+  --color-navy-700: #2b3a66;
+  --color-navy-100: #e3e6ef;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-gold-300: #e6d3a6;
+  --color-gold-400: #d7b97a;
+  --color-gold-500: #c5a059;
+  --color-gold-700: #7f6128;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-rose-500: #c2346f;
+  --color-rose-600: #a8265d;
+  --color-rose-700: #8a1d4b;
+  --color-rose-50: #f8ebf0;
+
+  --color-ivory-50: #fcf9f3;
+  --color-ivory-100: #f7f1e6;
+  --color-ivory-200: #eee4d2;
+  --color-sand-300: #dccfb7;
+
+  --color-ink: #1a2238;
+  --color-ink-soft: #4a5068;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
+
+  --ease-silk: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-up: fade-up 0.9s var(--ease-silk) both;
+  --animate-fade-in: fade-in 0.6s ease both;
+  --animate-slide-in-right: slide-in-right 0.45s var(--ease-silk) both;
+  --animate-slide-in-left: slide-in-left 0.45s var(--ease-silk) both;
+  --animate-kenburns: kenburns 9s ease-in-out infinite alternate;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1) translate(0, 0); }
+    to { transform: scale(1.14) translate(-2%, -3%); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes slide-in-left {
+    from { transform: translateX(-100%); }
+    to { transform: none; }
+  }
+  @keyframes slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: none; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory-50 font-sans text-ink antialiased;
+    font-feature-settings: "kern", "liga";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-navy-800;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  ::selection {
+    @apply bg-rose-600 text-ivory-50;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-rose-600);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-saaj {
+  @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+}
+@utility eyebrow {
+  @apply font-sans text-[0.7rem] font-medium tracking-[0.32em] uppercase;
+}
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 px-7 text-[0.78rem] font-medium tracking-[0.2em] uppercase transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-navy-800 text-ivory-50 hover:bg-navy-950;
+}
+@utility btn-gold {
+  @apply btn bg-gold-500 text-navy-950 hover:bg-gold-400;
+}
+@utility btn-outline {
+  @apply btn border border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-ivory-50;
+}
+@utility btn-outline-light {
+  @apply btn border border-ivory-50/70 text-ivory-50 hover:bg-ivory-50 hover:text-navy-900;
+}
+@utility btn-whatsapp {
+  @apply btn bg-[#1f7a4d] text-white hover:bg-[#17603c];
+}
+@utility link-underline {
+  @apply relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-[var(--ease-silk)] hover:after:scale-x-100;
+}
+@utility field {
+  @apply w-full border border-sand-300 bg-ivory-50 px-4 py-3 text-sm text-ink placeholder:text-ink-soft/70 focus:border-navy-800 focus:outline-none;
+}
+@utility placeholder-note {
+  @apply inline-block border border-dashed border-rose-600/50 bg-rose-50 px-2 py-0.5 text-[0.7rem] tracking-wide text-rose-700;
+}
+.prose-saaj p {
+  @apply mb-5 leading-[1.85] text-ink-soft;
+}
+.prose-saaj h2 {
+  @apply mt-12 mb-4 text-3xl;
+}
+.prose-saaj ul {
+  @apply mb-5 list-disc space-y-2 pl-5 text-ink-soft;
+}
+
+/* Reveal-on-scroll (see components/ui/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s var(--ease-silk), transform 1s var(--ease-silk);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
 }

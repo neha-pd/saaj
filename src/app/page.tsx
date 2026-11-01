@@ -1,69 +1,159 @@
 import Image from "next/image";
+import Link from "next/link";
+import { products } from "@/lib/products";
+import { site } from "@/lib/site";
+import { Hero } from "@/components/home/Hero";
+import { CollectionPanels } from "@/components/home/CollectionPanels";
+import { HowToOrder } from "@/components/home/HowToOrder";
+import { InstagramGallery } from "@/components/home/InstagramGallery";
+import { Marquee } from "@/components/home/Marquee";
+import { ReelTheatre } from "@/components/reels/ReelTheatre";
+import { Newsletter } from "@/components/home/Newsletter";
+import { ProductCard } from "@/components/product/ProductCard";
+import { Placeholder, SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { Ornament } from "@/components/ui/Ornament";
+import { InstagramIcon } from "@/components/ui/Icons";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = [...products].sort((a, b) => a.rank - b.rank).slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Hero />
+
+      <section className="py-16 md:py-20" aria-labelledby="collections-heading">
+        <div className="container-saaj text-center">
+          <p className="eyebrow text-rose-600">Our collections</p>
+          <h2 id="collections-heading" className="mt-3 text-4xl md:text-5xl">
+            Shop by <span className="italic">collection</span>
+          </h2>
+          <Ornament className="mx-auto mt-5" />
+          <div className="mt-12">
+            <CollectionPanels />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <Marquee />
+
+      <section className="bg-ivory-100 py-20 md:py-28" aria-labelledby="featured-heading">
+        <div className="container-saaj">
+          <SectionHeading
+            eyebrow="Featured"
+            title={<span id="featured-heading">Loved on the loom</span>}
+            intro="A few of the sarees our community has been asking about. Prices and details are shared personally on WhatsApp."
+          />
+          <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-12 md:gap-x-6 lg:grid-cols-4">
+            {featured.map((p, i) => (
+              <li key={p.slug}>
+                <Reveal delay={i * 90}>
+                  <ProductCard product={p} />
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-14 text-center">
+            <Link href="/shop" className="btn-outline">
+              Shop all sarees
+            </Link>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <HowToOrder />
+
+      {/* Brand story */}
+      <section className="relative overflow-hidden bg-navy-800 text-ivory-50" aria-labelledby="story-heading">
+        <div className="container-saaj grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-20">
+          <Reveal className="relative mx-auto w-full max-w-md">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-t-[999px]">
+              <Image
+                src="/ig/lilac-embroidered.jpg"
+                alt="Woman in a soft lilac embroidered saree in a garden"
+                fill
+                sizes="(min-width: 1024px) 34vw, 90vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -right-4 -bottom-6 hidden w-40 border-[6px] border-navy-800 sm:block md:w-48">
+              <div className="relative aspect-square">
+                <Image src="/ig/embroidered-stack.jpg" alt="Close-up of hand-embroidered fabrics" fill sizes="200px" className="object-cover" />
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="eyebrow text-gold-400">Our story</p>
+            <h2 id="story-heading" className="mt-5 text-4xl leading-tight !text-ivory-50 md:text-5xl">
+              The warmth of handloom,
+              <span className="block italic text-gold-300">the grace of you.</span>
+            </h2>
+            <Ornament className="mt-6" />
+            <div className="mt-7 space-y-5 leading-[1.85] text-ivory-100/85">
+              <p>
+                A handloom saree is made one line at a time — each pass of the shuttle a small decision, each border
+                a quiet act of patience. It carries something a machine cannot: the rhythm of the hands that wove it.
+              </p>
+              <p>
+                SAAJ exists to bring that warmth to you. We choose sarees we would treasure ourselves — rich zari
+                borders, scattered butis, soft everyday drapes — and share them personally, one conversation at a time.
+              </p>
+              <p>
+                <Placeholder>Add SAAJ&rsquo;s founder story &amp; weaver partnerships here</Placeholder>
+              </p>
+            </div>
+            <Link href="/our-story" className="btn-outline-light mt-9">
+              Read our story
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <ReelTheatre />
+
+      {/* Saree photographs from Instagram */}
+      <section className="py-20 md:py-28" aria-labelledby="instagram-heading">
+        <div className="container-saaj">
+          <SectionHeading
+            eyebrow={`@${site.instagram.handle}`}
+            title={<span id="instagram-heading">From our Instagram</span>}
+            intro="Sarees as they arrive — photographed by us, loved by you."
+          />
+          <div className="mt-14">
+            <InstagramGallery />
+          </div>
+          <div className="mt-12 text-center">
+            <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <InstagramIcon size={18} /> Follow us on Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials — placeholders until genuine reviews are supplied */}
+      <section className="bg-ivory-100 py-20 md:py-28" aria-labelledby="reviews-heading">
+        <div className="container-saaj">
+          <SectionHeading eyebrow="Kind words" title={<span id="reviews-heading">From the SAAJ family</span>} />
+          <ul className="mt-14 grid gap-6 md:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <li key={n}>
+                <figure className="flex h-full flex-col border border-sand-300/80 bg-ivory-50 p-8">
+                  <span aria-hidden className="font-display text-6xl leading-none text-gold-500">“</span>
+                  <blockquote className="mt-2 flex-1 font-display text-xl leading-relaxed text-ink-soft italic">
+                    Customer review {n} will appear here.
+                  </blockquote>
+                  <figcaption className="mt-6 space-y-2">
+                    <p className="eyebrow text-navy-800">Customer name</p>
+                    <Placeholder>Replace with a genuine review (see the “customer reviews” highlight on Instagram)</Placeholder>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <Newsletter />
+    </>
   );
 }
