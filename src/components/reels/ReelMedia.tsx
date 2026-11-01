@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { useEffect, useRef } from "react";
 import type { Reel } from "@/lib/reels";
 
@@ -52,8 +53,8 @@ export function ReelMedia({
     return (
       <video
         ref={ref}
-        src={reel.video}
-        poster={reel.poster}
+        src={asset(reel.video)}
+        poster={asset(reel.poster)}
         muted={muted}
         loop={loop}
         playsInline

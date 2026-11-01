@@ -1,12 +1,25 @@
 # SAAJ – Threads of Tradition
 
-E-commerce frontend for SAAJ handloom sarees, built with Next.js 16 (App Router, Cache Components) and Tailwind CSS 4.
+E-commerce frontend for SAAJ handloom sarees, built with Next.js 16 (App Router) and Tailwind CSS 4.
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
 npm run build && npm start
 ```
+
+## Publishing (GitHub Pages)
+
+Every push to `main` builds a static copy of the site and publishes it to
+**https://neha-pd.github.io/saaj/** (see `.github/workflows/deploy-pages.yml`).
+
+To test that build locally:
+
+```bash
+GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/saaj npm run build   # writes ./out
+```
+
+For plain `<img>`/`<video>` paths into `public/`, wrap them in `asset()` from `src/lib/asset.ts` so they get the `/saaj` prefix. `next/link` and `next/image` add it automatically.
 
 ## Where things live
 
@@ -61,5 +74,5 @@ Gold text on ivory doesn't meet contrast requirements, so gold is decorative on 
 - [ ] Newsletter: connect a provider (see the TODO in `Newsletter.tsx`).
 - [ ] Contact form: it opens WhatsApp today. Optionally also post to email or a form service.
 - [ ] Instagram: connect the Graph API or a feed service so the gallery updates automatically.
-- [ ] Set `site.url` to the real domain (used for canonical URLs, sitemap and JSON-LD).
+- [ ] If a custom domain is added, update `site.url` and drop `NEXT_PUBLIC_BASE_PATH` in the workflow (used for canonical URLs, sitemap and JSON-LD).
 - [ ] Replace every placeholder, then set `showPlaceholderNotes: false`.

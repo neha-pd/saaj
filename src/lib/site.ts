@@ -18,8 +18,8 @@ export const site = {
   bioLine: "The Warmth of Handloom, The Grace of You",
   description:
     "SAAJ – Threads of Tradition: handloom sarees chosen with love. Shipping across India. Enquire and order on WhatsApp or Instagram.",
-  // PLACEHOLDER — set to the production domain before launch
-  url: "https://www.saaj.example",
+  // Live on GitHub Pages. Change to the custom domain if one is added.
+  url: "https://neha-pd.github.io/saaj",
 
   instagram: {
     handle: "saaj_threadsoftradition",

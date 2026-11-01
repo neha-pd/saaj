@@ -9,3 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...products.map((p) => ({ url: `${site.url}/products/${p.slug}`, priority: 0.8 })),
   ];
 }
+
+// Generated once at build time (required for the static GitHub Pages export).
+export const dynamic = "force-static";
