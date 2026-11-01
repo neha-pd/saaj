@@ -53,7 +53,7 @@ export function ReelTheatre() {
       ref={sectionRef}
       aria-roledescription="carousel"
       aria-label="SAAJ reels"
-      className="relative overflow-hidden bg-navy-900 py-20 text-ivory-50 md:py-28"
+      className="relative overflow-hidden bg-navy-900 py-14 text-ivory-50 md:py-16"
     >
       {/* Oversized editorial word behind the stage */}
       <p
@@ -74,7 +74,7 @@ export function ReelTheatre() {
         </div>
 
         <div
-          className="relative mx-auto mt-14 h-[460px] max-w-5xl [perspective:1600px] md:h-[580px]"
+          className="relative mx-auto mt-8 h-[460px] max-w-5xl [perspective:1600px] md:h-[580px]"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
@@ -140,7 +140,7 @@ export function ReelTheatre() {
         </div>
 
         {/* Controls */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <button type="button" onClick={() => go(-1)} aria-label="Previous reel" className="grid size-12 place-items-center rounded-full border border-ivory-50/30 transition hover:bg-ivory-50 hover:text-navy-900">
             ←
           </button>

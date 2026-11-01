@@ -20,16 +20,16 @@ export function SectionHeading({
   return (
     <div className={`${centered ? "mx-auto text-center" : ""} max-w-2xl`}>
       {eyebrow && (
-        <p className={`eyebrow mb-4 ${tone === "dark" ? "text-rose-600" : "text-gold-400"}`}>{eyebrow}</p>
+        <p className={`eyebrow mb-2 ${tone === "dark" ? "text-rose-600" : "text-gold-400"}`}>{eyebrow}</p>
       )}
       <Heading
-        className={`text-4xl leading-[1.08] md:text-5xl ${tone === "light" ? "!text-ivory-50" : ""}`}
+        className={`text-[2.1rem] leading-[1.08] md:text-[2.6rem] ${tone === "light" ? "!text-ivory-50" : ""}`}
       >
         {title}
       </Heading>
-      <Ornament className={`mt-5 ${centered ? "mx-auto" : ""}`} />
+      <Ornament className={`mt-4 ${centered ? "mx-auto" : ""}`} />
       {intro && (
-        <p className={`mt-5 text-[0.98rem] leading-relaxed ${tone === "dark" ? "text-ink-soft" : "text-ivory-100/80"}`}>
+        <p className={`mt-3 text-[0.95rem] leading-relaxed ${tone === "dark" ? "text-ink-soft" : "text-ivory-100/80"}`}>
           {intro}
         </p>
       )}

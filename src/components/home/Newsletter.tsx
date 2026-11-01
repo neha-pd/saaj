@@ -13,9 +13,9 @@ export function Newsletter() {
 
   return (
     <section className="bg-ivory-200" aria-labelledby="newsletter-title">
-      <div className="container-saaj py-20 text-center md:py-24">
+      <div className="container-saaj py-14 text-center md:py-16">
         <p className="eyebrow text-rose-600">Newsletter</p>
-        <h2 id="newsletter-title" className="mt-4 text-4xl md:text-5xl">
+        <h2 id="newsletter-title" className="mt-2 text-[2.1rem] md:text-[2.6rem]">
           Be a Part of Our Story
         </h2>
         <Ornament className="mx-auto mt-5" />
@@ -24,12 +24,12 @@ export function Newsletter() {
         </p>
 
         {status === "done" ? (
-          <p className="mx-auto mt-10 max-w-md font-display text-2xl text-navy-800 italic" role="status">
+          <p className="mx-auto mt-6 max-w-md font-display text-2xl text-navy-800 italic" role="status">
             Thank you for joining us. Welcome to the SAAJ family.
           </p>
         ) : (
           <form
-            className="mx-auto mt-10 flex max-w-lg flex-col gap-3 sm:flex-row"
+            className="mx-auto mt-6 flex max-w-lg flex-col gap-3 sm:flex-row"
             noValidate
             onSubmit={(e) => {
               e.preventDefault();

@@ -37,14 +37,14 @@ export default function HomePage() {
 
       <Marquee />
 
-      <section className="bg-ivory-100 py-20 md:py-28" aria-labelledby="featured-heading">
+      <section className="bg-ivory-100 py-14 md:py-16" aria-labelledby="featured-heading">
         <div className="container-saaj">
           <SectionHeading
             eyebrow="Featured"
             title={<span id="featured-heading">Loved on the loom</span>}
             intro="A few of the sarees our community has been asking about. Prices and details are shared personally on WhatsApp."
           />
-          <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-12 md:gap-x-6 lg:grid-cols-4">
+          <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:gap-x-6 lg:grid-cols-4">
             {featured.map((p, i) => (
               <li key={p.slug}>
                 <Reveal delay={i * 90}>
@@ -53,7 +53,7 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <div className="mt-14 text-center">
+          <div className="mt-8 text-center">
             <Link href="/shop" className="btn-outline">
               Shop all sarees
             </Link>
@@ -65,8 +65,8 @@ export default function HomePage() {
 
       {/* Brand story */}
       <section className="relative overflow-hidden bg-navy-800 text-ivory-50" aria-labelledby="story-heading">
-        <div className="container-saaj grid items-center gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-20">
-          <Reveal className="relative mx-auto w-full max-w-md">
+        <div className="container-saaj grid items-center gap-10 py-14 md:py-16 lg:grid-cols-[minmax(0,22rem)_1fr] lg:justify-center lg:gap-20">
+          <Reveal className="relative mx-auto w-full max-w-[18rem] lg:max-w-none">
             <div className="relative aspect-[3/4] overflow-hidden rounded-t-[999px]">
               <Image
                 src="/ig/lilac-embroidered.jpg"
@@ -76,7 +76,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute -right-4 -bottom-6 hidden w-40 border-[6px] border-navy-800 sm:block md:w-48">
+            <div className="absolute -right-4 -bottom-5 hidden w-32 border-[6px] border-navy-800 sm:block md:w-36">
               <div className="relative aspect-square">
                 <Image src="/ig/embroidered-stack.jpg" alt="Close-up of hand-embroidered fabrics" fill sizes="200px" className="object-cover" />
               </div>
@@ -84,12 +84,12 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow text-gold-400">Our story</p>
-            <h2 id="story-heading" className="mt-5 text-4xl leading-tight !text-ivory-50 md:text-5xl">
+            <h2 id="story-heading" className="mt-2 text-[2.1rem] leading-tight !text-ivory-50 md:text-[2.6rem]">
               The warmth of handloom,
               <span className="block italic text-gold-300">the grace of you.</span>
             </h2>
-            <Ornament className="mt-6" />
-            <div className="mt-7 space-y-5 leading-[1.85] text-ivory-100/85">
+            <Ornament className="mt-4" />
+            <div className="mt-5 max-w-xl space-y-4 leading-[1.75] text-ivory-100/85">
               <p>
                 A handloom saree is made one line at a time — each pass of the shuttle a small decision, each border
                 a quiet act of patience. It carries something a machine cannot: the rhythm of the hands that wove it.
@@ -102,7 +102,7 @@ export default function HomePage() {
                 <Placeholder>Add SAAJ&rsquo;s founder story &amp; weaver partnerships here</Placeholder>
               </p>
             </div>
-            <Link href="/our-story" className="btn-outline-light mt-9">
+            <Link href="/our-story" className="btn-outline-light mt-7">
               Read our story
             </Link>
           </Reveal>
@@ -112,17 +112,17 @@ export default function HomePage() {
       <ReelTheatre />
 
       {/* Saree photographs from Instagram */}
-      <section className="py-20 md:py-28" aria-labelledby="instagram-heading">
+      <section className="py-14 md:py-16" aria-labelledby="instagram-heading">
         <div className="container-saaj">
           <SectionHeading
             eyebrow={`@${site.instagram.handle}`}
             title={<span id="instagram-heading">From our Instagram</span>}
             intro="Sarees as they arrive — photographed by us, loved by you."
           />
-          <div className="mt-14">
+          <div className="mt-8">
             <InstagramGallery />
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center">
             <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <InstagramIcon size={18} /> Follow us on Instagram
             </a>
@@ -131,10 +131,10 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials — placeholders until genuine reviews are supplied */}
-      <section className="bg-ivory-100 py-20 md:py-28" aria-labelledby="reviews-heading">
+      <section className="bg-ivory-100 py-14 md:py-16" aria-labelledby="reviews-heading">
         <div className="container-saaj">
           <SectionHeading eyebrow="Kind words" title={<span id="reviews-heading">From the SAAJ family</span>} />
-          <ul className="mt-14 grid gap-6 md:grid-cols-3">
+          <ul className="mt-8 grid gap-6 md:grid-cols-3">
             {[1, 2, 3].map((n) => (
               <li key={n}>
                 <figure className="flex h-full flex-col border border-sand-300/80 bg-ivory-50 p-8">

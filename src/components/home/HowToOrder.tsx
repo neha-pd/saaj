@@ -16,7 +16,7 @@ const steps = [
  */
 export function HowToOrder() {
   return (
-    <section className="relative overflow-hidden bg-ivory-100 py-20 md:py-24" aria-labelledby="order-heading">
+    <section className="relative overflow-hidden bg-ivory-100 py-14 md:py-16" aria-labelledby="order-heading">
       <div className="container-saaj">
         <div className="text-center">
           <p className="eyebrow text-rose-600">Personal shopping</p>
@@ -25,7 +25,7 @@ export function HowToOrder() {
           </h2>
         </div>
 
-        <div className="relative mt-16">
+        <div className="relative mt-10">
           {/* the thread */}
           <svg aria-hidden viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute top-6 left-0 hidden h-24 w-full text-gold-500 md:block">
             <path d="M0 60 C 150 0, 250 120, 400 60 S 650 0, 800 60 S 1050 120, 1200 60" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="6 6" />
@@ -43,7 +43,7 @@ export function HowToOrder() {
           </ol>
         </div>
 
-        <div className="mt-14 flex flex-col items-center gap-4">
+        <div className="mt-8 flex flex-col items-center gap-4">
           <div className="flex flex-col gap-3 sm:flex-row">
             <a href={whatsappLink("Hello SAAJ! I'd like to order a saree.")} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
               <WhatsAppIcon size={18} /> Order on WhatsApp
