@@ -22,14 +22,14 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="py-16 md:py-20" aria-labelledby="collections-heading">
+      <section className="py-12 md:py-16" aria-labelledby="collections-heading">
         <div className="container-saaj text-center">
           <p className="eyebrow text-rose-600">Our collections</p>
-          <h2 id="collections-heading" className="mt-3 text-4xl md:text-5xl">
+          <h2 id="collections-heading" className="mt-2 text-[2.1rem] md:text-[2.6rem]">
             Shop by <span className="italic">collection</span>
           </h2>
-          <Ornament className="mx-auto mt-5" />
-          <div className="mt-12">
+          <Ornament className="mx-auto mt-4" />
+          <div className="mt-8 md:mt-10">
             <CollectionPanels />
           </div>
         </div>
