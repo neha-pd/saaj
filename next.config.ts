@@ -13,6 +13,13 @@ const nextConfig: NextConfig = {
     trailingSlash: true,
     images: { loader: "custom", loaderFile: "./src/lib/image-loader.ts" },
   }),
+  // The admin is a static page in public/admin/. GitHub Pages serves its index.html
+  // at /admin/ by itself; the Next server needs this redirect (not allowed in exports).
+  ...(!pages && {
+    async redirects() {
+      return [{ source: "/admin", destination: "/admin/index.html", permanent: false }];
+    },
+  }),
   turbopack: {
     rules: {
       "*.css": {

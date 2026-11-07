@@ -1,0 +1,94 @@
+# SAAJ admin (Sveltia CMS) — https://sveltiacms.app
+# Sign in with a GitHub token (button on the login screen). Every save is a commit
+# to main, which rebuilds and republishes the site in ~2 minutes.
+
+backend:
+  name: github
+  repo: neha-pd/saaj
+  branch: main
+  commit_messages:
+    create: "Admin: add {{slug}}"
+    update: "Admin: update {{slug}}"
+    delete: "Admin: delete {{slug}}"
+    uploadMedia: "Admin: upload {{path}}"
+    deleteMedia: "Admin: delete {{path}}"
+
+site_url: https://neha-pd.github.io/saaj/
+display_url: https://neha-pd.github.io/saaj/
+logo_url: https://neha-pd.github.io/saaj/icon.png
+
+media_folder: public/uploads
+public_folder: /uploads
+
+# Phone photos are resized and converted to WebP in the browser before upload,
+# so the site stays fast on mobile data.
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
+collections:
+  - name: products
+    label: Sarees
+    label_singular: Saree
+    description: Each saree on the site. Fill in what you know — empty details show as “Details on request”.
+    folder: content/products
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: "{{name}}"
+    identifier_field: name
+    summary: "{{name}}"
+    sortable_fields: [name, added, featuredOrder]
+    media_folder: /public/uploads/products
+    public_folder: /uploads/products
+    fields:
+      - { name: name, label: Saree name, widget: string }
+      - name: images
+        label: Photos
+        label_singular: Photo
+        hint: The first photo is the main one. Drag to reorder.
+        widget: list
+        min: 1
+        fields:
+          - { name: src, label: Photo, widget: image }
+          - { name: alt, label: Short description of the photo, widget: string, required: false, hint: "For screen readers and Google, e.g. “Rani pink saree with gold border, draped”." }
+      - { name: price, label: Price (₹), widget: number, value_type: int, min: 0, required: false, hint: Leave empty to show “Price on request”. }
+      - { name: weave, label: Weave, widget: string, required: false, hint: "e.g. Paithani, Kunbi, Chanderi" }
+      - { name: fabric, label: Fabric, widget: string, required: false, hint: "e.g. Silk, Cotton, Silk-cotton" }
+      - { name: description, label: Description, widget: text, required: false }
+      - name: collections
+        label: Collections
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: New Arrivals, value: new-arrivals }
+          - { label: Festive Edit, value: festive-edit }
+          - { label: Zari & Buti, value: zari-and-buti }
+          - { label: Embroidered, value: embroidered }
+          - { label: Everyday Elegance, value: everyday-elegance }
+      - name: colours
+        label: Colours
+        label_singular: Colour
+        widget: list
+        required: false
+        fields:
+          - { name: name, label: Colour name, widget: string }
+          - { name: hex, label: Swatch, widget: color }
+      - { name: length, label: Length, widget: string, required: false, hint: "e.g. 5.5 m" }
+      - { name: blousePiece, label: Blouse piece, widget: string, required: false, hint: "e.g. Included, unstitched, 0.8 m" }
+      - { name: care, label: Care, widget: string, required: false, hint: "e.g. Dry clean only" }
+      - { name: badge, label: Badge, widget: string, required: false, hint: "Small label on the card, e.g. “Back in stock”" }
+      - { name: instagramUrl, label: Instagram post link, widget: string, required: false }
+      - { name: added, label: Date added, widget: datetime, time_format: false, date_format: "DD MMM YYYY", format: "YYYY-MM-DD", hint: Newer dates show first under “Newest”. }
+      - { name: featuredOrder, label: Featured order, widget: number, value_type: int, default: 99, min: 1, hint: Lowest 4 numbers appear in “Loved on the loom” on the home page. }
+      - { name: hidden, label: Hide from site (sold out), widget: boolean, default: false }
+      - { name: nameIsPlaceholder, label: Name is a working title, widget: boolean, default: false, hint: Shows a placeholder note next to the name. }

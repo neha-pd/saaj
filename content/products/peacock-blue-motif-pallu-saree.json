@@ -1,0 +1,36 @@
+{
+  "name": "Peacock Blue Motif Pallu Saree",
+  "nameIsPlaceholder": true,
+  "hidden": false,
+  "added": "2026-10-29",
+  "featuredOrder": 3,
+  "price": null,
+  "images": [
+    {
+      "src": "/ig/peacock-blue-pallu.jpg",
+      "alt": "Peacock blue saree with silver-toned butis, a silver border and a pallu woven with colourful motifs"
+    }
+  ],
+  "colours": [
+    {
+      "name": "Peacock Blue",
+      "hex": "#1f7fb0"
+    },
+    {
+      "name": "Silver",
+      "hex": "#c9ccd1"
+    }
+  ],
+  "description": "A peacock blue drape with silver-toned butis and border, opening into a richly patterned pallu woven with multicolour motifs and finished with tassels.",
+  "weave": "",
+  "fabric": "",
+  "length": "",
+  "blousePiece": "",
+  "care": "",
+  "collections": [
+    "festive-edit",
+    "zari-and-buti"
+  ],
+  "badge": "",
+  "instagramUrl": "https://www.instagram.com/p/DezNEKhCHOp/"
+}

@@ -88,7 +88,7 @@ export default function HomePage() {
               The warmth of handloom,
               <span className="block italic text-gold-300">the grace of you.</span>
             </h2>
-            <Ornament className="mt-4" />
+            <Ornament onDark className="mt-4" />
             <div className="mt-5 max-w-xl space-y-4 leading-[1.75] text-ivory-100/85">
               <p>
                 A handloom saree is made one line at a time — each pass of the shuttle a small decision, each border

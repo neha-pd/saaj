@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated from content/products by scripts/build-catalogue.mjs
+/src/lib/catalogue.generated.json

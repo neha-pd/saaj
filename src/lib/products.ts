@@ -1,13 +1,14 @@
 /**
  * Product catalogue.
  *
- * Every product below is built ONLY from what is visible in SAAJ's own Instagram
- * photographs. Names are descriptive working titles; price, fabric, weave,
- * length, blouse piece and care are left `null` until SAAJ supplies them.
- * The UI renders `null` fields as "Details on request" rather than guessing.
+ * Sarees live in content/products/<slug>.json and are edited through the /admin
+ * page (Sveltia CMS). scripts/build-catalogue.mjs turns them into
+ * catalogue.generated.json before every dev/build run.
  *
- * TODO(launch): replace this file with the e-commerce backend / CMS feed.
+ * Empty price, fabric, weave, length, blouse piece and care become `null`, which
+ * the UI renders as "Details on request" rather than guessing.
  */
+import catalogue from "./catalogue.generated.json";
 
 export type ProductImage = {
   src: string;
@@ -43,6 +44,7 @@ export type Product = {
   instagramUrl?: string;
 };
 
+/** Keep in sync with COLLECTIONS in scripts/build-catalogue.mjs and public/admin/config.yml. */
 export type CollectionSlug =
   | "new-arrivals"
   | "festive-edit"
@@ -119,110 +121,8 @@ export const collections: Collection[] = [
   },
 ];
 
-const empty = {
-  price: null,
-  fabric: null,
-  weave: null,
-  length: null,
-  blousePiece: null,
-  care: null,
-} as const;
-
-export const products: Product[] = [
-  {
-    ...empty,
-    slug: "midnight-navy-zari-buti-saree",
-    name: "Midnight Navy Zari Buti Saree",
-    nameIsPlaceholder: true,
-    images: [
-      {
-        src: "/ig/navy-zari-buti.jpg",
-        alt: "Navy saree with small gold floral butis, a broad zari-toned border and tasselled ends",
-        width: 480,
-        height: 640,
-      },
-    ],
-    colours: [
-      { name: "Navy", hex: "#1f2a8a" },
-      { name: "Gold", hex: "#c5a059" },
-    ],
-    description:
-      "A deep navy drape scattered with small gold-toned floral butis, framed by a broad zari-toned border and finished with tasselled ends. Marked “Back in stock” on our Instagram.",
-    collections: ["new-arrivals", "zari-and-buti", "everyday-elegance"],
-    listedOrder: 1,
-    rank: 1,
-    instagramUrl: "https://www.instagram.com/p/DfHopIliJju/",
-  },
-  {
-    ...empty,
-    slug: "rani-pink-buti-saree",
-    name: "Rani Pink Buti Saree",
-    nameIsPlaceholder: true,
-    images: [
-      {
-        src: "/ig/rani-pink-buti.jpg",
-        alt: "Woman wearing a rani pink saree with gold butis, gold border and a lustrous pallu",
-        width: 480,
-        height: 640,
-      },
-    ],
-    colours: [
-      { name: "Rani Pink", hex: "#c8186b" },
-      { name: "Gold", hex: "#c5a059" },
-    ],
-    description:
-      "Vivid rani pink with a lustrous finish, dotted with gold-toned butis and edged with a gleaming gold border — shown here styled with traditional gold jewellery.",
-    collections: ["festive-edit", "zari-and-buti"],
-    listedOrder: 2,
-    rank: 2,
-    instagramUrl: "https://www.instagram.com/p/DfBgJyniIN5/",
-  },
-  {
-    ...empty,
-    slug: "peacock-blue-motif-pallu-saree",
-    name: "Peacock Blue Motif Pallu Saree",
-    nameIsPlaceholder: true,
-    images: [
-      {
-        src: "/ig/peacock-blue-pallu.jpg",
-        alt: "Peacock blue saree with silver-toned butis, a silver border and a pallu woven with colourful motifs",
-        width: 480,
-        height: 640,
-      },
-    ],
-    colours: [
-      { name: "Peacock Blue", hex: "#1f7fb0" },
-      { name: "Silver", hex: "#c9ccd1" },
-    ],
-    description:
-      "A peacock blue drape with silver-toned butis and border, opening into a richly patterned pallu woven with multicolour motifs and finished with tassels.",
-    collections: ["festive-edit", "zari-and-buti"],
-    listedOrder: 3,
-    rank: 3,
-    instagramUrl: "https://www.instagram.com/p/DezNEKhCHOp/",
-  },
-  {
-    ...empty,
-    slug: "lilac-tonal-embroidered-saree",
-    name: "Lilac Tonal Embroidered Saree",
-    nameIsPlaceholder: true,
-    images: [
-      {
-        src: "/ig/lilac-embroidered.jpg",
-        alt: "Woman in a soft lilac saree covered in tonal floral embroidery, standing in a garden",
-        width: 480,
-        height: 640,
-      },
-    ],
-    colours: [{ name: "Lilac", hex: "#b99aa6" }],
-    description:
-      "A soft lilac drape covered in delicate tonal floral embroidery — understated, airy and easy to wear from day to evening.",
-    collections: ["embroidered", "everyday-elegance"],
-    listedOrder: 4,
-    rank: 4,
-    instagramUrl: "https://www.instagram.com/p/DUycAjDCJ7u/",
-  },
-];
+/** Built from content/products/*.json by scripts/build-catalogue.mjs (edit sarees at /admin). */
+export const products = catalogue as Product[];
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

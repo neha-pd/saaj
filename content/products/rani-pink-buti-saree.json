@@ -1,0 +1,36 @@
+{
+  "name": "Rani Pink Buti Saree",
+  "nameIsPlaceholder": true,
+  "hidden": false,
+  "added": "2026-10-30",
+  "featuredOrder": 2,
+  "price": null,
+  "images": [
+    {
+      "src": "/ig/rani-pink-buti.jpg",
+      "alt": "Woman wearing a rani pink saree with gold butis, gold border and a lustrous pallu"
+    }
+  ],
+  "colours": [
+    {
+      "name": "Rani Pink",
+      "hex": "#c8186b"
+    },
+    {
+      "name": "Gold",
+      "hex": "#c5a059"
+    }
+  ],
+  "description": "Vivid rani pink with a lustrous finish, dotted with gold-toned butis and edged with a gleaming gold border — shown here styled with traditional gold jewellery.",
+  "weave": "",
+  "fabric": "",
+  "length": "",
+  "blousePiece": "",
+  "care": "",
+  "collections": [
+    "festive-edit",
+    "zari-and-buti"
+  ],
+  "badge": "",
+  "instagramUrl": "https://www.instagram.com/p/DfBgJyniIN5/"
+}

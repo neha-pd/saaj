@@ -1,0 +1,32 @@
+{
+  "name": "Lilac Tonal Embroidered Saree",
+  "nameIsPlaceholder": true,
+  "hidden": false,
+  "added": "2026-10-28",
+  "featuredOrder": 4,
+  "price": null,
+  "images": [
+    {
+      "src": "/ig/lilac-embroidered.jpg",
+      "alt": "Woman in a soft lilac saree covered in tonal floral embroidery, standing in a garden"
+    }
+  ],
+  "colours": [
+    {
+      "name": "Lilac",
+      "hex": "#b99aa6"
+    }
+  ],
+  "description": "A soft lilac drape covered in delicate tonal floral embroidery — understated, airy and easy to wear from day to evening.",
+  "weave": "",
+  "fabric": "",
+  "length": "",
+  "blousePiece": "",
+  "care": "",
+  "collections": [
+    "embroidered",
+    "everyday-elegance"
+  ],
+  "badge": "",
+  "instagramUrl": "https://www.instagram.com/p/DUycAjDCJ7u/"
+}

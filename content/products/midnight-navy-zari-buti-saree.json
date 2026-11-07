@@ -1,0 +1,37 @@
+{
+  "name": "Midnight Navy Zari Buti Saree",
+  "nameIsPlaceholder": true,
+  "hidden": false,
+  "added": "2026-10-31",
+  "featuredOrder": 1,
+  "price": null,
+  "images": [
+    {
+      "src": "/ig/navy-zari-buti.jpg",
+      "alt": "Navy saree with small gold floral butis, a broad zari-toned border and tasselled ends"
+    }
+  ],
+  "colours": [
+    {
+      "name": "Navy",
+      "hex": "#1f2a8a"
+    },
+    {
+      "name": "Gold",
+      "hex": "#c5a059"
+    }
+  ],
+  "description": "A deep navy drape scattered with small gold-toned floral butis, framed by a broad zari-toned border and finished with tasselled ends. Marked “Back in stock” on our Instagram.",
+  "weave": "",
+  "fabric": "",
+  "length": "",
+  "blousePiece": "",
+  "care": "",
+  "collections": [
+    "new-arrivals",
+    "zari-and-buti",
+    "everyday-elegance"
+  ],
+  "badge": "",
+  "instagramUrl": "https://www.instagram.com/p/DfHopIliJju/"
+}
