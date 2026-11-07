@@ -69,7 +69,7 @@ export function ReelTheatre() {
           <h2 className="mt-4 text-4xl !text-ivory-50 md:text-6xl">
             SAAJ <span className="italic text-gold-300">in motion</span>
           </h2>
-          <Ornament className="mx-auto mt-5" />
+          <Ornament onDark className="mx-auto mt-5" />
           <p className="mt-5 text-ivory-100/75">The drape, the shimmer, the stalls and the smiles — straight from our reels.</p>
         </div>
 

@@ -34,7 +34,7 @@ export function Hero() {
             <h1 className="animate-fade-up text-[2.1rem] leading-[1.1] !text-ivory-50 [animation-delay:100ms] sm:text-[2.6rem] lg:text-[3.3rem]">
               Threads of Tradition, <span className="block italic text-gold-300">Woven with Love.</span>
             </h1>
-            <Ornament className="mt-5 animate-fade-up [animation-delay:160ms]" />
+            <Ornament onDark className="mt-5 animate-fade-up [animation-delay:160ms]" />
             <p className="mt-4 animate-fade-up font-display text-lg text-ivory-100/80 italic [animation-delay:220ms]">{site.bioLine}</p>
             <div className="mt-8 flex w-full animate-fade-up flex-col gap-3 [animation-delay:280ms] sm:w-auto sm:flex-row">
               <Link href="/shop" className="btn-gold">

@@ -4,7 +4,6 @@ import { collections } from "@/lib/products";
 import { whatsappLink } from "@/lib/format";
 import { Logo } from "@/components/ui/Logo";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
-import { Ornament } from "@/components/ui/Ornament";
 
 const columns = [
   {
@@ -41,7 +40,6 @@ export function Footer() {
         <div className="max-w-sm">
           <Logo tone="light" />
           <p className="mt-6 font-display text-2xl leading-snug text-ivory-50 italic">“{site.bioLine}”</p>
-          <Ornament className="mt-5" />
           <div className="mt-7 flex gap-3">
             <a
               href={site.instagram.url}

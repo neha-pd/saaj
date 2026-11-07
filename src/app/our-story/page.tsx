@@ -77,7 +77,7 @@ export default function OurStoryPage() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow text-gold-400">What we believe</p>
             <h2 className="mt-4 text-4xl !text-ivory-50 md:text-5xl">A philosophy woven in</h2>
-            <Ornament className="mx-auto mt-5" />
+            <Ornament onDark className="mx-auto mt-5" />
           </div>
           <ul className="mt-14 grid gap-px overflow-hidden bg-ivory-50/10 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p, i) => (
